@@ -27,7 +27,10 @@
             "styles": [
               "src/styles.css"
             ],
-            "scripts": [],
+            "scripts": [
+              "src/recrursos/js/custom.js",
+              "node_modules/feather-icons/dist/feather.min.js"
+            ],
             "server": "src/main.server.ts",
             "prerender": true,
             "ssr": {
