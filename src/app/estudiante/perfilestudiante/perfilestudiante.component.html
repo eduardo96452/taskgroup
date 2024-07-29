@@ -81,7 +81,7 @@
               </div>
             </h6>
             <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="/perfil">
+            <a class="dropdown-item" href="/perfilE">
               <div class="dropdown-item-icon"><i class="fa-regular fa-gear"></i></div>
               Perfil
             </a>
@@ -600,25 +600,105 @@
       <!--Cuerpo de la pagina-->
       <div id="layoutSidenav_content">
         <main>
-          <div class="container-fluid px-4">
-            
             <!--aqui va lo que tendra el cuerpo de la pagina-->
-            
-            
-          </div>
+            <header class="page-header page-header-compact page-header-light border-bottom bg-white mb-4">
+                <div class="container-xl px-4">
+                    <div class="page-header-content">
+                        <div class="row align-items-center justify-content-between pt-3">
+                            <div class="col-auto mb-3">
+                                <h1 class="page-header-title">
+                                    <div class="page-header-icon">
+                                        <i data-feather="user"></i>
+                                    </div>
+                                    Configuración de la Cuenta - Perfil                       
+                                </h1>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <!-- Main page content-->
+            <div class="container-xl px-4 mt-4">
+                <!-- Account page navigation-->
+                <nav class="nav nav-borders">
+                    <a class="nav-link active ms-0" href="account-profile.html">Perfil</a>
+                    <a class="nav-link" href="account-security.html">Security</a>
+                </nav>
+                <hr class="mt-0 mb-4"/>
+                <div class="row">
+                    <div class="col-xl-4">
+                        <!-- Profile picture card-->
+                        <div class="card mb-4 mb-xl-0">
+                            <div class="card-header">Foto de Perfil</div>
+                            <div class="card-body text-center">
+                                <!-- Profile picture image-->
+                                <img class="img-account-profile rounded-circle mb-2" src="../assets/img/perfil.png" alt=""/>
+                                <!-- Profile picture help block-->
+                                <div class="small font-italic text-muted mb-4">JPG o PNG de no más de 5 MB</div>
+                                <!-- Profile picture upload button-->
+                                <button class="btn btn-primary" type="button">Subir nueva imagen</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-8">
+                        <!-- Account details card-->
+                        <div class="card mb-4">
+                            <div class="card-header">Detalles de la Cuenta</div>
+                            <div class="card-body">
+                                <form>
+                                    <!-- Form Group (username)-->
+                                    <div class="mb-3">
+                                        <label class="small mb-1" for="inputUsername">Nombre de usuario (cómo aparecerá tu nombre para otros usuarios en el sitio)</label>
+                                        <input class="form-control" id="inputUsername" type="text" placeholder="Ingrese su usuario"/>
+                                    </div>
+                                    <!-- Form Row-->
+                                    <div class="row gx-3 mb-3">
+                                        <!-- Form Group (first name)-->
+                                        <div class="col-md-6">
+                                            <label class="small mb-1" for="inputFirstName">Nombre</label>
+                                            <input class="form-control" id="inputFirstName" type="text" placeholder="Ingrese su nombre"/>
+                                        </div>
+                                        <!-- Form Group (last name)-->
+                                        <div class="col-md-6">
+                                            <label class="small mb-1" for="inputLastName">Apellido</label>
+                                            <input class="form-control" id="inputLastName" type="text" placeholder="Ingrese su apellido"/>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Form Group (email address)-->
+                                    <div class="mb-3">
+                                        <label class="small mb-1" for="inputEmailAddress">Dirección de correo electrónico</label>
+                                        <input class="form-control" id="inputEmailAddress" type="email" placeholder="Ingrese su correo electronico"/>
+                                    </div>
+                                    <!-- Form Row-->
+                                    <div class="row gx-3 mb-3">
+                                        <!-- Form Group (phone number)-->
+                                        <div class="col-md-6">
+                                            <label class="small mb-1" for="inputPhone">Número de teléfono</label>
+                                            <input class="form-control" id="inputPhone" type="tel" placeholder="Ingrese su numero telefonico"/>
+                                        </div>
+                                    </div>
+                                    <!-- Save changes button-->
+                                    <button class="btn btn-primary" type="button">Guardar cambios</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>            
         </main>
         <footer class="footer-admin mt-auto footer-light">
-          <div class="container-xl px-4">
-            <div class="row">
-              <div class="col-md-6 small">Copyright © Your Website 2021</div>
-              <div class="col-md-6 text-md-end small">
-                <a href="#!">Privacy Policy</a>
-                ·
-                <a href="#!">Terms &amp; Conditions</a>
+            <div class="container-xl px-4">
+              <div class="row">
+                <div class="col-md-6 small">Copyright © Your Website 2021</div>
+                <div class="col-md-6 text-md-end small">
+                  <a href="#!">Privacy Policy</a>
+                  ·
+                  <a href="#!">Terms &amp; Conditions</a>
+                </div>
               </div>
             </div>
-          </div>
-        </footer>  
+          </footer>
       </div>
     </div>
   </div>
