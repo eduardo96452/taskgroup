@@ -28,6 +28,8 @@
               "src/styles.css"
             ],
             "scripts": [
+              "src/recrursos/js/markdown.js",
+              "src/recrursos/js/datatables-simple-demo.js",
               "src/recrursos/js/custom.js",
               "node_modules/feather-icons/dist/feather.min.js"
             ],
