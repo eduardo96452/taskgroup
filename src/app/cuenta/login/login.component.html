@@ -11,18 +11,26 @@
                                     <h3 class="fw-light my-4">Iniciar Sesión</h3>
                                 </div>
                                 <div class="card-body">
-                                    <form>
+                                    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
                                         <!-- Correo-->
                                         <div class="mb-3">
                                             <label class="small mb-1" for="inputEmailAddress">Correo</label>
-                                            <input class="form-control" id="inputEmailAddress" type="email"
-                                                placeholder="Ingrese su correo electronico" />
+                                            <input 
+                                                class="form-control" 
+                                                id="inputEmailAddress" 
+                                                type="email" 
+                                                formControlName="email"
+                                                placeholder="Ingrese su correo electronico" required/>
                                         </div>
                                         <!-- Contraseña-->
                                         <div class="mb-3">
                                             <label class="small mb-1" for="inputPassword">Contraseña</label>
-                                            <input class="form-control" id="inputPassword" type="password"
-                                                placeholder="Ingrese su contraseña" />
+                                            <input 
+                                                class="form-control" 
+                                                id="inputPassword" 
+                                                type="password" 
+                                                formControlName="password"
+                                                placeholder="Ingrese su contraseña" required/>
                                         </div>
                                         <!-- Recordar contraseña-->
                                         <div class="mb-3">
@@ -35,7 +43,7 @@
                                         <!-- Caja de ingreso-->
                                         <div class="d-flex align-items-center justify-content-between mt-4 mb-0">
                                             <a class="small" href="/recuperacion">¿Has olvidado tu contraseña?</a>
-                                            <a class="btn btn-primary" href="/dashboardP">Ingreso</a>
+                                            <button class="btn btn-primary" type="=submit">Ingreso</button>
                                         </div>
                                     </form>
                                 </div>
