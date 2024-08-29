@@ -6,5 +6,9 @@ export interface creargrupo {
 
 export interface traermensaje {
     message: string;
-    grupos: creargrupo;
+    grupos: nombregrupo;    
   }
+
+export interface nombregrupo{
+    [grupo: string]: string
+}

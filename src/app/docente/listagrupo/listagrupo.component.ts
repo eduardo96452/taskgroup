@@ -17,6 +17,8 @@ export class ListagrupoComponent {
   selectedOption: string = 'Seleccione una materia';
   selectedOption2: string = 'Seleccione un curso';
   selectedOption3: string = 'Seleccione # de miembros';
+  mensaje: string = '';  // Inicializado como string vacío
+  grupos: any = {};  // Inicializado como un objeto vacío
   
 
   // Método para actualizar la opción seleccionada
@@ -40,25 +42,20 @@ export class ListagrupoComponent {
     private serviciogrupo: GroupProfesorService
   ) {}
 
-  
+  groupform = this._formBuilder.group({
+    course_id: [1],
+    members: [4],
+    name_subject: ['Matemáticas'],
+  });
   
   onSubmit() {
-
-    const group = {
-      course_id: 1,
-      members: 4,
-      name_subject: "Matemáticas"
-    };
-
-    console.log(group);
-
     this.serviciogrupo
-      .login(group as creargrupo)
+      .login(this.groupform.value as creargrupo)
       .pipe(
         tap((res) => {
           // Aquí se muestra la información de la respuesta en la consola
-          console.log('Respuesta del servidor:', res.grupos);
-          console.log('Respuesta del servidor:', res.message);
+          console.log('Respuesta del servidor:', res);
+          
         }),
         catchError((err) => {
           console.log('Hoo no parece que ha fallado');
@@ -67,5 +64,4 @@ export class ListagrupoComponent {
       )
       .subscribe();
   }
-  
 }

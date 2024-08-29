@@ -16,9 +16,10 @@ login(credential: creargrupo): Observable<traermensaje> {
   const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
   // const body = { email, password };
 
-  return this.http.post<traermensaje>(`${config.apiUrl}/createGroup`, credential, {
+  return this.http.post<traermensaje>(`${config.apiUrl}/createGroups`, credential, {
     headers,
   });
 }
+
 // Otras funciones para llamados a la API pueden ir aquí
 }
