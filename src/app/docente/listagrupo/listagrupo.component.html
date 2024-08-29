@@ -273,8 +273,11 @@
                                     <button class="btn btn-sm btn-light text-primary" type="button"
                                         data-bs-toggle="modal" data-bs-target="#createGroupModal">
                                         <i class="me-1" data-feather="plus"></i>
-                                        Create New Group
+                                        Creación de nuevo grupo con IA
                                     </button>
+
+                                    <button class="btn btn-primary-soft text-primary" (click)="onSubmit()">Crear nuevo
+                                        grupo</button>
                                 </div>
                             </div>
                         </div>
@@ -373,25 +376,64 @@
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="createGroupModalLabel">Create New Group</h5>
+                                <h5 class="modal-title" id="createGroupModalLabel">Creación de nuevo grupo con IA</h5>
                                 <button class="btn-close" type="button" data-bs-dismiss="modal"
                                     aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
-                                <form>
-                                    <div class="mb-0">
-                                        <label class="mb-1 small text-muted" for="formGroupName">Group Name</label>
-                                        <input class="form-control" id="formGroupName" type="text"
-                                            placeholder="Enter group name..." />
+                                <form >
+                                    &nbsp;
+                                    <div class="dropdown">
+                                        <button class="btn btn-secondary dropdown-toggle" type="button"
+                                            data-bs-toggle="dropdown" aria-expanded="false">
+                                            {{ selectedOption }} <!-- Aquí se muestra la opción seleccionada -->
+                                        </button>
+                                        <ul class="dropdown-menu">
+                                            <!-- Cada botón llama a la función selectOption() con el texto correspondiente -->
+                                            <button class="dropdown-item" type="button"
+                                                (click)="selectOption('Matematica')">Matematica</button>
+                                            <button class="dropdown-item" type="button"
+                                                (click)="selectOption('Fisica')">Fisica</button>
+                                        </ul>
+                                    </div>
+                                    &nbsp;
+                                    <div class="dropdown">
+                                        <button class="btn btn-secondary dropdown-toggle" type="button"
+                                            data-bs-toggle="dropdown" aria-expanded="false">
+                                            {{ selectedOption2 }} <!-- Aquí se muestra la opción seleccionada -->
+                                        </button>
+                                        <ul class="dropdown-menu">
+                                            <!-- Cada botón llama a la función selectOption() con el texto correspondiente -->
+                                            <button class="dropdown-item" type="button"
+                                                (click)="selectOption2('1A')">1A</button>
+                                            <button class="dropdown-item" type="button"
+                                                (click)="selectOption2('1B')">1B</button>
+                                        </ul>
+                                    </div>
+                                    &nbsp;
+                                    <div class="dropdown">
+                                        <button class="btn btn-secondary dropdown-toggle" type="button"
+                                            data-bs-toggle="dropdown" aria-expanded="false">
+                                            {{ selectedOption3 }} <!-- Aquí se muestra la opción seleccionada -->
+                                        </button>
+                                        <ul class="dropdown-menu">
+                                            <!-- Cada botón llama a la función selectOption() con el texto correspondiente -->
+                                            <button class="dropdown-item" type="button"
+                                                (click)="selectOption3('2')">2</button>
+                                            <button class="dropdown-item" type="button"
+                                                (click)="selectOption3('3')">3</button>
+                                            <button class="dropdown-item" type="button"
+                                                (click)="selectOption3('4')">4</button>
+                                        </ul>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button class="btn btn-danger-soft text-danger" type="button"
+                                            data-bs-dismiss="modal">Cancel</button>
+                                        <button class="btn btn-primary-soft text-primary">Crear nuevo grupo</button>
                                     </div>
                                 </form>
                             </div>
-                            <div class="modal-footer">
-                                <button class="btn btn-danger-soft text-danger" type="button"
-                                    data-bs-dismiss="modal">Cancel</button>
-                                <button class="btn btn-primary-soft text-primary" type="button">Create New
-                                    Group</button>
-                            </div>
+                            
                         </div>
                     </div>
                 </div>
@@ -401,14 +443,14 @@
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="editGroupModalLabel">Edit Group</h5>
+                                <h5 class="modal-title" id="editGroupModalLabel">Editar Grupo</h5>
                                 <button class="btn-close" type="button" data-bs-dismiss="modal"
                                     aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
                                 <form>
                                     <div class="mb-0">
-                                        <label class="mb-1 small text-muted" for="formGroupName">Group Name</label>
+                                        <label class="mb-1 small text-muted" for="formGroupName">Nombre del grupo</label>
                                         <input class="form-control" id="formGroupName" type="text"
                                             placeholder="Enter group name..." value="Sales" />
                                     </div>
@@ -417,7 +459,7 @@
                             <div class="modal-footer">
                                 <button class="btn btn-danger-soft text-danger" type="button"
                                     data-bs-dismiss="modal">Cancel</button>
-                                <button class="btn btn-primary-soft text-primary" type="button">Save Changes</button>
+                                <button class="btn btn-primary-soft text-primary" type="button">Guardar Cambios</button>
                             </div>
                         </div>
                     </div>
