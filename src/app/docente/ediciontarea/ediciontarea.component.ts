@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-ediciontarea',
@@ -7,6 +7,21 @@ import { Component } from '@angular/core';
   templateUrl: './ediciontarea.component.html',
   styleUrl: './ediciontarea.component.css'
 })
-export class EdiciontareaComponent {
+export class EdiciontareaComponent implements OnInit {
+  usuario: string = '';
+  correo: string = '';
+
+  ngOnInit() {
+    const userData = localStorage.getItem('user');
+
+    if (userData) {
+      const user = JSON.parse(userData);
+      this.usuario = user.names;
+      this.correo = user.email;
+      console.log(user.email); // Mostrar el correo
+      console.log(user.names); // Mostrar el nombre
+      // Puedes acceder a cualquier otra propiedad del usuario
+    }
+  }
 
 }

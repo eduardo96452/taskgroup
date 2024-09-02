@@ -12,14 +12,15 @@ import { GroupProfesorService } from '../../services/group-profesor.service';
   templateUrl: './listagrupo.component.html',
   styleUrl: './listagrupo.component.css'
 })
-export class ListagrupoComponent {
+export class ListagrupoComponent implements OnInit {
   // Variable para almacenar la opción seleccionada
   selectedOption: string = 'Seleccione una materia';
   selectedOption2: string = 'Seleccione un curso';
   selectedOption3: string = 'Seleccione # de miembros';
   mensaje: string = '';  // Inicializado como string vacío
   grupos: any = {};  // Inicializado como un objeto vacío
-  
+  usuario: string = '';
+  correo: string = '';
 
   // Método para actualizar la opción seleccionada
   selectOption(option: string) {
@@ -63,5 +64,18 @@ export class ListagrupoComponent {
         })
       )
       .subscribe();
+  }
+
+  ngOnInit() {
+    const userData = localStorage.getItem('user');
+
+    if (userData) {
+      const user = JSON.parse(userData);
+      this.usuario = user.names;
+      this.correo = user.email;
+      console.log(user.email); // Mostrar el correo
+      console.log(user.names); // Mostrar el nombre
+      // Puedes acceder a cualquier otra propiedad del usuario
+    }
   }
 }

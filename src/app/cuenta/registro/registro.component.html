@@ -30,6 +30,22 @@
                                                 </div>
                                             </div>
                                         </div>
+
+                                        <div class="dropdown mb-3">
+                                            <label class="small mb-1" for="inputEmailAddress">Tipo de Usuario</label>
+                                            &nbsp;<button class="btn btn-primary dropdown-toggle" type="button"
+                                                data-bs-toggle="dropdown" aria-expanded="false">
+                                                {{ selectedOption }} <!-- Aquí se muestra la opción seleccionada -->
+                                            </button>
+                                            <ul class="dropdown-menu">
+                                                <!-- Cada botón llama a la función selectOption() con el texto correspondiente -->
+                                                <button class="dropdown-item" type="button"
+                                                    (click)="selectOption('Estudiante')">Estudiante</button>
+                                                <button class="dropdown-item" type="button"
+                                                    (click)="selectOption('Profesor')">Profesor</button>
+                                            </ul>
+                                        </div>
+
                                         <!-- Correo-->
                                         <div class="mb-3">
                                             <label class="small mb-1" for="inputEmailAddress">Correo</label>
@@ -56,7 +72,7 @@
                                             </div>
                                         </div>
                                         <!-- Crear Cuenta-->
-                                        <a class="btn btn-primary btn-block" href="/encuesta">Crear
+                                        <a class="btn btn-success btn-block" href="#">Crear
                                             Cuenta</a>
                                     </form>
                                 </div>

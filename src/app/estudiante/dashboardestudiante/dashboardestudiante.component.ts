@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TimeService } from '../../services/time.service';
 
 @Component({
   selector: 'app-dashboardestudiante',
@@ -9,11 +10,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashboardestudianteComponent implements OnInit {
   // Variable para almacenar la fecha actual en formato YYYY-MM-DD
-  currentDate: string;
+  currentDate: string = '';
   usuario: string = '';
   correo: string = '';
 
-  constructor() {
+  constructor(private timeService: TimeService) {
     // Obtener la fecha actual
     const today = new Date();
     // Formatear la fecha en formato YYYY-MM-DD
@@ -22,6 +23,7 @@ export class DashboardestudianteComponent implements OnInit {
 
   ngOnInit() {
     const userData = localStorage.getItem('user');
+    this.getTimeForCountry('America/Guayaquil');
 
     if (userData) {
       const user = JSON.parse(userData);
@@ -31,5 +33,14 @@ export class DashboardestudianteComponent implements OnInit {
       console.log(user.names); // Mostrar el nombre
       // Puedes acceder a cualquier otra propiedad del usuario
     }
+  }
+
+  getTimeForCountry(timezone: string) {
+    this.timeService.getTimeByTimezone(timezone).subscribe(data => {
+      const dateTime = new Date(data.datetime);  // Convierte el string de la API a Date
+      this.currentDate = dateTime.toISOString().split('T')[0]; // Formato 'YYYY-MM-DD'
+    }, error => {
+      console.error('Error fetching time:', error);
+    });
   }
 }
