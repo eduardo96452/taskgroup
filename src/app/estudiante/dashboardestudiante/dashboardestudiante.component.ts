@@ -43,4 +43,10 @@ export class DashboardestudianteComponent implements OnInit {
       console.error('Error fetching time:', error);
     });
   }
+
+  // Función para borrar el localStorage
+  clearLocalStorage() {
+    localStorage.clear();  // Limpia todo el localStorage
+    console.log('localStorage ha sido borrado');
+  }
 }

@@ -23,4 +23,10 @@ export class PerfilestudianteComponent implements OnInit {
       // Puedes acceder a cualquier otra propiedad del usuario
     }
   }
+
+  // Función para borrar el localStorage
+  clearLocalStorage() {
+    localStorage.clear();  // Limpia todo el localStorage
+    console.log('localStorage ha sido borrado');
+  }
 }

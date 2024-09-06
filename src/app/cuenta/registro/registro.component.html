@@ -11,13 +11,13 @@
                                     <h3 class="fw-light my-4">Creación de Cuenta</h3>
                                 </div>
                                 <div class="card-body">
-                                    <form>
+                                    <form [formGroup]="registerForm" (ngSubmit)="submitForm()">
                                         <div class="row gx-3">
                                             <div class="col-md-6">
                                                 <!-- Nombre-->
                                                 <div class="mb-3">
                                                     <label class="small mb-1" for="inputFirstName">Nombre</label>
-                                                    <input class="form-control" id="inputFirstName" type="text"
+                                                    <input class="form-control" formControlName="names" id="inputFirstName" type="text"
                                                         placeholder="Ingrese su nombre" />
                                                 </div>
                                             </div>
@@ -25,7 +25,7 @@
                                                 <!-- Apellido-->
                                                 <div class="mb-3">
                                                     <label class="small mb-1" for="inputLastName">Apellido</label>
-                                                    <input class="form-control" id="inputLastName" type="text"
+                                                    <input class="form-control" formControlName="last_names" id="inputLastName" type="text"
                                                         placeholder="Ingrese su apellido" />
                                                 </div>
                                             </div>
@@ -33,23 +33,23 @@
 
                                         <div class="dropdown mb-3">
                                             <label class="small mb-1" for="inputEmailAddress">Tipo de Usuario</label>
-                                            &nbsp;<button class="btn btn-primary dropdown-toggle" type="button"
+                                            &nbsp;<button class="btn btn-secundary dropdown-toggle" type="button"
                                                 data-bs-toggle="dropdown" aria-expanded="false">
                                                 {{ selectedOption }} <!-- Aquí se muestra la opción seleccionada -->
                                             </button>
                                             <ul class="dropdown-menu">
                                                 <!-- Cada botón llama a la función selectOption() con el texto correspondiente -->
-                                                <button class="dropdown-item" type="button"
-                                                    (click)="selectOption('Estudiante')">Estudiante</button>
-                                                <button class="dropdown-item" type="button"
-                                                    (click)="selectOption('Profesor')">Profesor</button>
+                                                <li><button class="dropdown-item" type="button"
+                                                    (click)="selectOption('Estudiante')">Estudiante</button></li>
+                                                <li><button class="dropdown-item" type="button"
+                                                    (click)="selectOption('Profesor')">Profesor</button></li>
                                             </ul>
                                         </div>
 
                                         <!-- Correo-->
                                         <div class="mb-3">
                                             <label class="small mb-1" for="inputEmailAddress">Correo</label>
-                                            <input class="form-control" id="inputEmailAddress" type="email"
+                                            <input class="form-control" formControlName="email" id="inputEmailAddress" type="email"
                                                 aria-describedby="emailHelp" placeholder="Ingrese su correo" />
                                         </div>
                                         <div class="row gx-3">
@@ -57,7 +57,7 @@
                                                 <!-- Contraseña-->
                                                 <div class="mb-3">
                                                     <label class="small mb-1" for="inputPassword">Contraseña</label>
-                                                    <input class="form-control" id="inputPassword" type="password"
+                                                    <input class="form-control" formControlName="password" id="inputPassword" type="password"
                                                         placeholder="Ingrese una contraseña" />
                                                 </div>
                                             </div>
@@ -66,14 +66,13 @@
                                                 <div class="mb-3">
                                                     <label class="small mb-1" for="inputConfirmPassword">Confirmar
                                                         contraseña</label>
-                                                    <input class="form-control" id="inputConfirmPassword"
+                                                    <input class="form-control" formControlName="confirmPassword" id="inputConfirmPassword"
                                                         type="password" placeholder="Confirme su contraseña" />
                                                 </div>
                                             </div>
                                         </div>
                                         <!-- Crear Cuenta-->
-                                        <a class="btn btn-success btn-block" href="#">Crear
-                                            Cuenta</a>
+                                        <a class="btn btn-success btn-block" type="submit">Crear Cuenta</a>
                                     </form>
                                 </div>
                                 <div class="card-footer text-center">
