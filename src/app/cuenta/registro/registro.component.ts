@@ -8,10 +8,11 @@ import { catchError, tap } from 'rxjs';
 @Component({
   selector: 'app-registro',
   standalone: true,
-  imports: [],
+  imports: [ReactiveFormsModule  ],
   templateUrl: './registro.component.html',
   styleUrl: './registro.component.css'
 })
+
 export class RegistroComponent {
   // Variable para almacenar la opción seleccionada
   selectedOption: string = 'Seleccione el tipo de usuario a crear';
@@ -31,7 +32,7 @@ export class RegistroComponent {
       this.registerForm = this.fb.group({
         names: ['', Validators.required],
         last_names: ['', Validators.required],
-        email: ['', [Validators.required, Validators.email]],
+        email: ['', Validators.required],
         username: ['', Validators.required],
         password: ['', Validators.required],
         confirmPassword: ['', Validators.required],
@@ -39,7 +40,6 @@ export class RegistroComponent {
         course_id: [1]   // Puedes asignar el valor por defecto del curso o cambiarlo según sea necesario
     });
   }
-
 
   // Método para enviar el formulario
   submitForm() {
@@ -65,6 +65,8 @@ export class RegistroComponent {
           tap((res) => {
             console.log('Respuesta del servidor:', res);
             window.alert('Se ha registrado con éxito, inicie sesión');
+            // Redirigir al usuario a /dashboardE después de aceptar la alerta
+            this.router.navigate(['/login']);
 
           }),
           catchError((err) => {

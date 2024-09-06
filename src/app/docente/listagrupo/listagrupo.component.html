@@ -129,25 +129,6 @@
                         <!-- Sidenav Heading (Custom)-->
                         <div class="sidenav-menu-heading">Gestión de grupos</div>
                         <!-- Sidenav Accordion (Pages)-->
-                        <a class="nav-link" href="charts.html">
-                            <div class="nav-link-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                    stroke-linecap="round" stroke-linejoin="round" class="feather feather-bar-chart">
-                                    <line x1="12" y1="20" x2="12" y2="10"></line>
-                                    <line x1="18" y1="20" x2="18" y2="4"></line>
-                                    <line x1="6" y1="20" x2="6" y2="16"></line>
-                                </svg></div>
-                            Crear grupos
-                            <div class="sidenav-collapse-arrow"><svg class="svg-inline--fa fa-angle-down"
-                                    aria-hidden="true" focusable="false" data-prefix="fas" data-icon="angle-down"
-                                    role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"
-                                    data-fa-i2svg="">
-                                    <path fill="currentColor"
-                                        d="M169.4 342.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 274.7 54.6 137.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z">
-                                    </path>
-                                </svg><!-- <i class="fas fa-angle-down"></i> Font Awesome fontawesome.com --></div>
-                        </a>
-                        <!-- Sidenav Accordion (Pages)-->
                         <a class="nav-link" href="/listaG">
                             <div class="nav-link-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                     viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
@@ -166,7 +147,7 @@
                                     </path>
                                 </svg><!-- <i class="fas fa-angle-down"></i> Font Awesome fontawesome.com --></div>
                         </a>
-                        <a class="nav-link" href="charts.html">
+                        <a class="nav-link" href="/listaE">
                             <div class="nav-link-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                     viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                                     stroke-linecap="round" stroke-linejoin="round" class="feather feather-bar-chart">
@@ -270,14 +251,12 @@
                                         <i class="me-1" data-feather="user"></i>
                                         Lista de usuarios
                                     </a>
+                                    &nbsp;
                                     <button class="btn btn-sm btn-light text-primary" type="button"
                                         data-bs-toggle="modal" data-bs-target="#createGroupModal">
                                         <i class="me-1" data-feather="plus"></i>
                                         Creación de nuevo grupo con IA
                                     </button>
-
-                                    <button class="btn btn-primary-soft text-primary" (click)="onSubmit()">Crear nuevo
-                                        grupo</button>
                                 </div>
                             </div>
                         </div>
@@ -382,14 +361,14 @@
                             </div>
                             <div class="modal-body">
                                 <form >
-                                    &nbsp;
+                                    <!--&nbsp;
                                     <div class="dropdown">
                                         <button class="btn btn-secondary dropdown-toggle" type="button"
                                             data-bs-toggle="dropdown" aria-expanded="false">
-                                            {{ selectedOption }} <!-- Aquí se muestra la opción seleccionada -->
+                                            {{ selectedOption }}
                                         </button>
                                         <ul class="dropdown-menu">
-                                            <!-- Cada botón llama a la función selectOption() con el texto correspondiente -->
+                                            
                                             <button class="dropdown-item" type="button"
                                                 (click)="selectOption('Matematica')">Matematica</button>
                                             <button class="dropdown-item" type="button"
@@ -400,21 +379,21 @@
                                     <div class="dropdown">
                                         <button class="btn btn-secondary dropdown-toggle" type="button"
                                             data-bs-toggle="dropdown" aria-expanded="false">
-                                            {{ selectedOption2 }} <!-- Aquí se muestra la opción seleccionada -->
+                                            {{ selectedOption2 }}
                                         </button>
                                         <ul class="dropdown-menu">
-                                            <!-- Cada botón llama a la función selectOption() con el texto correspondiente -->
+                                            
                                             <button class="dropdown-item" type="button"
                                                 (click)="selectOption2('1A')">1A</button>
                                             <button class="dropdown-item" type="button"
                                                 (click)="selectOption2('1B')">1B</button>
                                         </ul>
-                                    </div>
-                                    &nbsp;
+                                    </div>-->
+                                    
                                     <div class="dropdown">
-                                        <button class="btn btn-secondary dropdown-toggle" type="button"
+                                        <button class="btn btn-info dropdown-toggle" type="button"
                                             data-bs-toggle="dropdown" aria-expanded="false">
-                                            {{ selectedOption3 }} <!-- Aquí se muestra la opción seleccionada -->
+                                            {{ selectedOption3 }}
                                         </button>
                                         <ul class="dropdown-menu">
                                             <!-- Cada botón llama a la función selectOption() con el texto correspondiente -->
@@ -426,6 +405,7 @@
                                                 (click)="selectOption3('4')">4</button>
                                         </ul>
                                     </div>
+                                    &nbsp;
                                     <div class="modal-footer">
                                         <button class="btn btn-danger-soft text-danger" type="button"
                                             data-bs-dismiss="modal">Cancel</button>

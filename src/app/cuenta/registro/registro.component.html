@@ -30,7 +30,8 @@
                                                 </div>
                                             </div>
                                         </div>
-
+                                        
+                                        <div class="row gx-3">
                                         <div class="dropdown mb-3">
                                             <label class="small mb-1" for="inputEmailAddress">Tipo de Usuario</label>
                                             &nbsp;<button class="btn btn-secundary dropdown-toggle" type="button"
@@ -45,6 +46,15 @@
                                                     (click)="selectOption('Profesor')">Profesor</button></li>
                                             </ul>
                                         </div>
+                                        <div class="col-md-6">
+                                            <!-- Apellido-->
+                                            <div class="mb-3">
+                                                <label class="small mb-1" for="inputLastName">Nombre de Usuario</label>
+                                                <input class="form-control" formControlName="username" id="inputLastName" type="text"
+                                                    placeholder="Ingrese su nombre de Usuario" />
+                                            </div>
+                                        </div>
+                                    </div>
 
                                         <!-- Correo-->
                                         <div class="mb-3">
@@ -72,7 +82,7 @@
                                             </div>
                                         </div>
                                         <!-- Crear Cuenta-->
-                                        <a class="btn btn-success btn-block" type="submit">Crear Cuenta</a>
+                                        <button class="btn btn-success btn-block" type="submit">Crear Cuenta</button>
                                     </form>
                                 </div>
                                 <div class="card-footer text-center">
