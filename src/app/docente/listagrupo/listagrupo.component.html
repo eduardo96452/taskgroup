@@ -351,6 +351,8 @@
                                         &nbsp;
                                         &nbsp;<button class="btn btn-success-soft text-primary" type="submit">Utilizar la IA apra crear el grupo</button>
                                     </div>
+                                </form>
+                                <form (submit)="submitForm($event)">
                                     &nbsp;
                                     <div class="card-body">
                                         <table id="example" class="table table-striped" style="width:100%">
@@ -361,9 +363,13 @@
                                                 </tr>
                                             </thead>
                                             <tbody >
-                                                <tr *ngFor="let grupo of gruposConNombres">
-                                                    <td>{{ grupo.nombreGrupo }}</td>
-                                                    <td>{{ grupo.nombreMiembros.join(', ') }}</td>
+                                                <tr *ngFor="let grupo of gruposConNombresArray">
+                                                    <td class="text-center">{{ grupo.nombreGrupo }}</td>
+                                                    <td class="text-center">
+                                                        <ul>
+                                                            <li *ngFor="let miembro of grupo.miembros">{{ miembro }}</li>
+                                                        </ul>
+                                                    </td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -372,7 +378,7 @@
                                     <div class="modal-footer">
                                         <button class="btn btn-danger-soft text-danger" type="button"
                                             data-bs-dismiss="modal">Cancel</button>
-                                        <button class="btn btn-primary-soft text-primary" >Acepto</button>
+                                        <button class="btn btn-primary-soft text-primary" type="submit">Acepto</button>
                                     </div>
                                 </form>
                             </div>

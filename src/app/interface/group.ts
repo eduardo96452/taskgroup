@@ -5,19 +5,19 @@ export interface creargrupo {
 }
 
 export interface traermensaje {
-    message: string;
-    grupos: nombregrupo;  
-    idgrupos: numerogrupo;
+    gruposConNombres: nombregrupo;  
+    gruposConNombresID: numerogrupo;
+    mensaje: string;
   }
 
 export interface nombregrupo{
-    nombreGrupo: string;
-    nombreMiembros: string[];
+    [grupo: string]: string;
 }
 
 export interface numerogrupo{
-    [grupo: number]: number;
+    [grupo: string]: string;
 }
+
 
 export interface vergrupo{
     group_name: string;
@@ -26,10 +26,10 @@ export interface vergrupo{
 }
 
 export interface savegroups{
-    subjest_id: number;
+    subject_id: number;
     created_teacher: number;
     creation_date: string;
-    gruposConMombresID:nombregrupo;
+    gruposConNombresID:numerogrupo;
 }
 
 export interface mensajedeguardado{
