@@ -12,6 +12,7 @@ import { ListausuarioComponent } from './docente/listausuario/listausuario.compo
 import { PerfilprofesorComponent } from './docente/perfilprofesor/perfilprofesor.component';
 import { ListagrupoComponent } from './docente/listagrupo/listagrupo.component';
 import { RegistrotareaComponent } from './docente/registrotarea/registrotarea.component';
+import { EstudiantegrupoComponent } from './estudiante/estudiantegrupo/estudiantegrupo.component';
 
 
 export const routes: Routes = [
@@ -28,6 +29,7 @@ export const routes: Routes = [
     {path: 'listaE', component: ListausuarioComponent },
     {path: 'registroT', component: RegistrotareaComponent },
     {path: 'listaG', component: ListagrupoComponent },
+    {path: 'gruposE', component: EstudiantegrupoComponent },
     {path: 'dashboardE', component: DashboardestudianteComponent }
 
 ];
