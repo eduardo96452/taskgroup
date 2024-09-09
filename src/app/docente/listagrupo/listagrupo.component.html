@@ -333,7 +333,7 @@
                                                 (click)="selectOption2('1B')">1B</button>
                                         </ul>
                                     </div>-->
-                                    
+                                    <h4>Seleccione # de miembros</h4>
                                     <div class="dropdown">
                                         <button class="btn btn-info dropdown-toggle" type="button"
                                             data-bs-toggle="dropdown" aria-expanded="false">
@@ -347,13 +347,32 @@
                                                 (click)="selectOption3('3')">3</button>
                                             <button class="dropdown-item" type="button"
                                                 (click)="selectOption3('4')">4</button>
-                                        </ul>
+                                        </ul>&nbsp;
+                                        &nbsp;
+                                        &nbsp;<button class="btn btn-success-soft text-primary" type="submit">Utilizar la IA apra crear el grupo</button>
                                     </div>
                                     &nbsp;
+                                    <div class="card-body">
+                                        <table id="example" class="table table-striped" style="width:100%">
+                                            <thead>
+                                                <tr>
+                                                    <th class="text-center">Nombre de grupo</th>
+                                                    <th class="text-center">Nombre de miembros</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody >
+                                                <tr *ngFor="let grupo of gruposConNombres">
+                                                    <td>{{ grupo.nombreGrupo }}</td>
+                                                    <td>{{ grupo.nombreMiembros.join(', ') }}</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    &nbsp;<p>¿Desea quedarse con este grupo creado por IA?</p>
                                     <div class="modal-footer">
                                         <button class="btn btn-danger-soft text-danger" type="button"
                                             data-bs-dismiss="modal">Cancel</button>
-                                        <button class="btn btn-primary-soft text-primary" type="submit">Crear nuevo grupo</button>
+                                        <button class="btn btn-primary-soft text-primary" >Acepto</button>
                                     </div>
                                 </form>
                             </div>

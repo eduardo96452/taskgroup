@@ -2,7 +2,7 @@ import { Component, OnInit, AfterViewInit, Renderer2 } from '@angular/core';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators,} from '@angular/forms';
 import { catchError, of, tap } from 'rxjs';
 import { Router } from '@angular/router';
-import { creargrupo, vergrupo  } from '../../interface/group';
+import { creargrupo, vergrupo, savegroups, traermensaje, nombregrupo  } from '../../interface/group';
 import { GroupProfesorService } from '../../services/group-profesor.service';
 import { HttpClient } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
@@ -24,7 +24,8 @@ export class ListagrupoComponent implements OnInit, AfterViewInit {
   correo: string = '';
   groupform: FormGroup;
   groups: any[] = [];
-
+  gruposConNombres: nombregrupo[] = [];
+  someGroup: any = {};
 
   selectOption3(value: string): void  {
     this.selectedOption3 = value;
@@ -49,16 +50,21 @@ export class ListagrupoComponent implements OnInit, AfterViewInit {
       console.log('Datos del formulario que se enviarán:', this.groupform.value);
       
       this.serviciogrupo.login(this.groupform.value as creargrupo)
-        .pipe(
-          tap((res) => {
-            console.log('Respuesta del servidor:', res);
-          }),
-          catchError((err) => {
-            console.log('Parece que hubo un error:', err);
-            return of(null);
-          })
-        )
-        .subscribe();
+  .pipe(
+    tap((res1) => {
+      if (Array.isArray(res1.grupos)) {
+        this.gruposConNombres = res1.grupos as nombregrupo[];
+        console.log(this.gruposConNombres);
+      } else {
+        console.error('La estructura de datos no es la esperada');
+      }
+    }),
+    catchError((err) => {
+      console.log('Parece que hubo un error:', err);
+      return of(null);
+    })
+  )
+  .subscribe();
     } else {
       console.log('Formulario inválido');
     }
@@ -93,7 +99,6 @@ export class ListagrupoComponent implements OnInit, AfterViewInit {
           console.log('Respuesta del servidor:', res);  // Verifica la respuesta del servidor
           if (res) {
             this.groups = res;  // Asigna los datos a la variable `groups`
-            console.log('Datos asignados a groups:', this.groups);  // Verifica que los datos se hayan asignado correctamente
           }
         }),
         catchError((err) => {
@@ -109,4 +114,5 @@ export class ListagrupoComponent implements OnInit, AfterViewInit {
     localStorage.clear();  // Limpia todo el localStorage
     console.log('localStorage ha sido borrado');
   }
+
 }

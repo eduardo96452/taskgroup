@@ -20,6 +20,7 @@ export class ListausuarioComponent implements OnInit, AfterViewInit  {
   usuario: string = '';
   correo: string = '';
   estudiantes: any[] = [];
+  grupos: string[] = [];
 
   constructor(
     private _formBuilder: FormBuilder,
@@ -73,6 +74,9 @@ export class ListausuarioComponent implements OnInit, AfterViewInit  {
       )
       .subscribe();
   }
+
+  
+        
 
   getGruposArray(groups: nombreestudiante): string[] {
     return Object.values(groups);  // Convierte los valores del objeto en un array
