@@ -266,82 +266,26 @@
                 <div class="container-fluid px-4">
                     <div class="card">
                         <div class="card-body">
-                            <table id="datatablesSimple">
+                            <table id="example" class="table table-striped" style="width:100%">
                                 <thead>
                                     <tr>
-                                        <th>Group Name</th>
-                                        <th>Total Members</th>
-                                        <th>Created Date</th>
-                                        <th>Actions</th>
+                                        <th class="text-center">Nombre de grupo</th>
+                                        <th class="text-center">Miembros Totales</th>
+                                        <th class="text-center">Fecha de Creación</th>
+                                        <th>Opciones</th>
                                     </tr>
                                 </thead>
-                                <tfoot>
-                                    <tr>
-                                        <th>Group Name</th>
-                                        <th>Total Members</th>
-                                        <th>Created Date</th>
-                                        <th>Actions</th>
-                                    </tr>
-                                </tfoot>
-                                <tbody>
-                                    <tr>
-                                        <td>Sales</td>
-                                        <td>8</td>
-                                        <td>20 Jun 2021</td>
+                                <tbody >
+                                    <tr *ngFor="let group of groups">
+                                        <td>{{ group.group_name }}</td>
+                                        <td class="text-center">{{ group.number_of_members }}</td>
+                                        <td class="text-center">{{ group.creation_date | date:'dd MMM yyyy' }}</td>
                                         <td>
-                                            <button class="btn btn-datatable btn-icon btn-transparent-dark me-2"
+                                            <button class="btn btn-icon btn-transparent-dark me-2"
                                                 type="button" data-bs-toggle="modal" data-bs-target="#editGroupModal"><i
-                                                    data-feather="edit"></i></button>
-                                            <a class="btn btn-datatable btn-icon btn-transparent-dark" href="#!"><i
-                                                    data-feather="trash-2"></i></a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Developers</td>
-                                        <td>6</td>
-                                        <td>20 Jun 2021</td>
-                                        <td>
-                                            <button class="btn btn-datatable btn-icon btn-transparent-dark me-2"
-                                                type="button" data-bs-toggle="modal" data-bs-target="#editGroupModal"><i
-                                                    data-feather="edit"></i></button>
-                                            <a class="btn btn-datatable btn-icon btn-transparent-dark" href="#!"><i
-                                                    data-feather="trash-2"></i></a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Marketing</td>
-                                        <td>3</td>
-                                        <td>20 Jun 2021</td>
-                                        <td>
-                                            <button class="btn btn-datatable btn-icon btn-transparent-dark me-2"
-                                                type="button" data-bs-toggle="modal" data-bs-target="#editGroupModal"><i
-                                                    data-feather="edit"></i></button>
-                                            <a class="btn btn-datatable btn-icon btn-transparent-dark" href="#!"><i
-                                                    data-feather="trash-2"></i></a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Managers</td>
-                                        <td>6</td>
-                                        <td>20 Jun 2021</td>
-                                        <td>
-                                            <button class="btn btn-datatable btn-icon btn-transparent-dark me-2"
-                                                type="button" data-bs-toggle="modal" data-bs-target="#editGroupModal"><i
-                                                    data-feather="edit"></i></button>
-                                            <a class="btn btn-datatable btn-icon btn-transparent-dark" href="#!"><i
-                                                    data-feather="trash-2"></i></a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Customer</td>
-                                        <td>10</td>
-                                        <td>20 Jun 2021</td>
-                                        <td>
-                                            <button class="btn btn-datatable btn-icon btn-transparent-dark me-2"
-                                                type="button" data-bs-toggle="modal" data-bs-target="#editGroupModal"><i
-                                                    data-feather="edit"></i></button>
-                                            <a class="btn btn-datatable btn-icon btn-transparent-dark" href="#!"><i
-                                                    data-feather="trash-2"></i></a>
+                                                class="fa-solid fa-edit fa-sm"></i></button>
+                                            <a class="btn btn-icon btn-transparent-dark" href="/listaG"><i
+                                                class="fa-solid fa-trash fa-sm"></i></a>
                                         </td>
                                     </tr>
                                 </tbody>
@@ -360,7 +304,7 @@
                                     aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
-                                <form >
+                                <form [formGroup]="groupform"  (ngSubmit)="onSubmit()">
                                     <!--&nbsp;
                                     <div class="dropdown">
                                         <button class="btn btn-secondary dropdown-toggle" type="button"
@@ -409,7 +353,7 @@
                                     <div class="modal-footer">
                                         <button class="btn btn-danger-soft text-danger" type="button"
                                             data-bs-dismiss="modal">Cancel</button>
-                                        <button class="btn btn-primary-soft text-primary">Crear nuevo grupo</button>
+                                        <button class="btn btn-primary-soft text-primary" type="submit">Crear nuevo grupo</button>
                                     </div>
                                 </form>
                             </div>

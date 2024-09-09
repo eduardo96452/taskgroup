@@ -12,3 +12,10 @@ export interface traermensaje {
 export interface nombregrupo{
     [grupo: string]: string
 }
+
+
+export interface vergrupo{
+    group_name: string;
+    number_of_members: number;
+    creation_date:string;
+}

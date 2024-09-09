@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { creargrupo, traermensaje } from '../interface/group';
+import { creargrupo, traermensaje, vergrupo } from '../interface/group';
 import { Observable } from 'rxjs';
 import { config } from '../config';
 
@@ -19,6 +19,11 @@ login(credential: creargrupo): Observable<traermensaje> {
   return this.http.post<traermensaje>(`${config.apiUrl}/createGroups`, credential, {
     headers,
   });
+}
+
+
+tablagrupos(): Observable<vergrupo[]> {
+  return this.http.get<vergrupo[]>(`${config.apiUrl}/groups`);
 }
 
 // Otras funciones para llamados a la API pueden ir aquí
