@@ -42,8 +42,7 @@ export class ListagrupoComponent implements OnInit, AfterViewInit {
       members: [null],
       name_subject: ['Matemáticas']
     });
-  }
-  
+  }  
 
   onSubmit(): void {
     if (this.groupform.valid) {
